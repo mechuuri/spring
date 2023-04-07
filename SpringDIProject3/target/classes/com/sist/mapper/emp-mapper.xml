@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.mapper.emp-mapper">
+<!-- 
+	vo에 들어가서 setter에 값을 채워주게 만드는... >> resultType
+	?에 값 채우는거 parameterType
+ -->
+  <select id="empListData" resultType="EmpVO">
+  	SELECT empno,ename,job,hiredate as regdate,sal,deptno,
+  		   (SELECT dname FROM dept WHERE deptno=emp.deptno) as dname,
+  		   (SELECT loc FROM dept WHERE deptno=emp.deptno) as loc,
+  		   RANK() OVER(ORDER BY sal DESC) as rank
+  	FROM emp
+  		   
+  		   
+  </select>
+
+</mapper>
