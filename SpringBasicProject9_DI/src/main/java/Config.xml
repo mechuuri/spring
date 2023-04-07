@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+ <!-- Connection -->
+ <!-- 
+ 순서대로 태그 만들어야 함
+ properties?, settings?, typeAliases?, typeHandlers?, objectFactory?, 
+ objectWrapperFactory?, reflectorFactory?, plugins?, environments?, databaseIdProvider?, mappers?
+  	
+ 필요하면 쓰고..
+  	
+ mappers? ====> 선택 사항
+ mapper* ==== 0번 이상 사용
+ mapper+ ==== 한번 이상 사용
+ mapper| ==== 선택
+ mapper =========== 아무것도 안붙으면 default 반드시 한번을 사용 
+  -->
+ <configuration>
+   	<typeAliases>
+   	  <typeAlias type="com.sist.dao.FoodVO" alias="FoodVO"/>
+   	</typeAliases>
+   	<mappers>
+   	  <mapper resource="com/sist/dao/food-mapper.xml"/>
+   	</mappers>
+ </configuration>
